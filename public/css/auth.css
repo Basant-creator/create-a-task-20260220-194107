@@ -1,0 +1,196 @@
+/* Auth Page Specific Styles */
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--header-height) - 10rem); /* Adjust for header/footer height */
+    padding: 2rem 1rem;
+    background-color: var(--bg-light);
+}
+
+.auth-container {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.auth-container h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    outline: none;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: -0.5rem; /* Reduce gap to previous form group */
+}
+
+.forgot-password-link {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.forgot-password-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Custom Checkbox Style */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 1.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: left;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: var(--gray-light);
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: var(--gray-medium);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 0.45rem;
+    top: 0.2rem;
+    width: 0.25rem;
+    height: 0.6rem;
+    border: solid var(--white);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Terms Checkbox specific adjustments */
+.form-options.terms {
+    justify-content: flex-start;
+    margin-top: 0;
+}
+.form-options.terms .checkbox-container {
+    margin-right: 0;
+}
+.form-options.terms a {
+    font-size: inherit; /* Inherit font size from parent */
+}
+
+
+.auth-error-display {
+    color: var(--red-error);
+    margin-top: -0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    min-height: 1.25rem; /* Reserve space */
+}
+
+.btn-primary.btn-block {
+    position: relative;
+    padding: 0.8rem 1.5rem; /* Ensure consistent button padding */
+}
+
+.btn-primary.btn-block .spinner {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    border-width: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .auth-container {
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .auth-container h2 {
+        font-size: 1.75rem;
+    }
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .form-options.terms {
+        align-items: flex-start;
+    }
+}
