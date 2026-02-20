@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - TaskMaster Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../public/index.html" class="logo">TaskMaster Pro</a>
+            <nav class="nav" id="main-nav">
+                <a href="../public/index.html" class="nav-link nav-home" style="display:none;">Index</a>
+                <a href="../public/login.html" class="nav-link nav-login" style="display:none;">Login</a>
+                <a href="../public/signup.html" class="nav-link nav-signup" style="display:none;">Signup</a>
+                <a href="dashboard.html" class="nav-link nav-dashboard">Dashboard</a>
+                <a href="profile.html" class="nav-link current-page nav-profile">Profile</a>
+                <a href="settings.html" class="nav-link nav-settings">Settings</a>
+                <button id="logout-button" class="btn btn-secondary nav-logout">Logout</button>
+            </nav>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <aside class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/60/6366f1/ffffff?text=U" alt="User Avatar">
+                </div>
+                <h3 id="user-greeting">Hello, User!</h3>
+                <p id="user-email">user@example.com</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link"><i class="fas fa-columns"></i> Dashboard</a>
+                <a href="profile.html" class="sidebar-link current-page"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="settings.html" class="sidebar-link"><i class="fas fa-cog"></i> Settings</a>
+                <button id="sidebar-logout-button" class="sidebar-link btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </nav>
+        </aside>
+
+        <section class="dashboard-content profile-content">
+            <div class="profile-header">
+                <h2>Your Profile</h2>
+            </div>
+
+            <div class="profile-card">
+                <form id="profile-form">
+                    <div class="profile-avatar-upload">
+                        <img src="https://via.placeholder.com/120/8b5cf6/ffffff?text=Profile" alt="Profile Picture" id="profile-picture-preview">
+                        <label for="profile-picture" class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Upload Photo
+                            <input type="file" id="profile-picture" accept="image/*" style="display:none;">
+                        </label>
+                        <p class="upload-hint">Max file size 2MB</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-name">Name</label>
+                        <input type="text" id="profile-name" placeholder="Your Name">
+                        <div class="error-message" id="profile-name-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-email">Email</label>
+                        <input type="email" id="profile-email" disabled> <!-- Email usually not editable directly -->
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-bio">Bio</label>
+                        <textarea id="profile-bio" rows="3" placeholder="Tell us a little about yourself..."></textarea>
+                    </div>
+                    
+                    <div class="form-action-buttons">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="save-profile-button">
+                            Save Profile
+                            <span class="spinner" style="display:none;"></span>
+                        </button>
+                    </div>
+                    <div class="success-message" id="profile-success" style="display:none;">Profile updated successfully!</div>
+                    <div class="error-message" id="profile-form-error" style="display:none;"></div>
+                </form>
+            </div>
+
+            <div class="profile-card password-change-card">
+                <h3>Change Password</h3>
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="********">
+                        <div class="error-message" id="current-password-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="********">
+                        <div class="error-message" id="new-password-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" placeholder="********">
+                        <div class="error-message" id="confirm-new-password-error"></div>
+                    </div>
+                    <div class="form-action-buttons">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary" id="change-password-button">
+                            Change Password
+                            <span class="spinner" style="display:none;"></span>
+                        </button>
+                    </div>
+                    <div class="success-message" id="password-success" style="display:none;">Password changed successfully!</div>
+                    <div class="error-message" id="password-form-error" style="display:none;"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TaskMaster Pro</h3>
+                    <p>Streamline your workflow, boost productivity, and achieve your goals with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../public/index.html">Home</a></li>
+                        <li><a href="../public/login.html">Login</a></li>
+                        <li><a href="../public/signup.html">Signup</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 TaskMaster Pro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="../public/js/main.js"></script>
+    <script src="js/dashboard.js"></script> <!-- Re-using dashboard.js for common auth/logout -->
+</body>
+</html>
