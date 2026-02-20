@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TaskMaster Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../public/index.html" class="logo">TaskMaster Pro</a>
+            <nav class="nav" id="main-nav">
+                <a href="../public/index.html" class="nav-link nav-home" style="display:none;">Index</a>
+                <a href="../public/login.html" class="nav-link nav-login" style="display:none;">Login</a>
+                <a href="../public/signup.html" class="nav-link nav-signup" style="display:none;">Signup</a>
+                <a href="dashboard.html" class="nav-link nav-dashboard">Dashboard</a>
+                <a href="profile.html" class="nav-link nav-profile">Profile</a>
+                <a href="settings.html" class="nav-link current-page nav-settings">Settings</a>
+                <button id="logout-button" class="btn btn-secondary nav-logout">Logout</button>
+            </nav>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <aside class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/60/6366f1/ffffff?text=U" alt="User Avatar">
+                </div>
+                <h3 id="user-greeting">Hello, User!</h3>
+                <p id="user-email">user@example.com</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link"><i class="fas fa-columns"></i> Dashboard</a>
+                <a href="profile.html" class="sidebar-link"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="settings.html" class="sidebar-link current-page"><i class="fas fa-cog"></i> Settings</a>
+                <button id="sidebar-logout-button" class="sidebar-link btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </nav>
+        </aside>
+
+        <section class="dashboard-content settings-content">
+            <div class="settings-header">
+                <h2>Application Settings</h2>
+            </div>
+
+            <div class="settings-card">
+                <h3>General Preferences</h3>
+                <form id="general-settings-form">
+                    <div class="form-group form-checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="email-notifications">
+                            Enable Email Notifications
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="form-group form-checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="push-notifications" checked>
+                            Enable Push Notifications
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="default-view">Default Dashboard View</label>
+                        <select id="default-view">
+                            <option value="all-tasks">All Tasks</option>
+                            <option value="pending-tasks" selected>Pending Tasks</option>
+                            <option value="completed-tasks">Completed Tasks</option>
+                        </select>
+                    </div>
+                    <div class="form-action-buttons">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="save-general-settings-button">
+                            Save Settings
+                            <span class="spinner" style="display:none;"></span>
+                        </button>
+                    </div>
+                    <div class="success-message" id="general-success" style="display:none;">General settings saved!</div>
+                    <div class="error-message" id="general-form-error" style="display:none;"></div>
+                </form>
+            </div>
+
+            <div class="settings-card security-settings-card">
+                <h3>Security & Privacy</h3>
+                <form id="security-settings-form">
+                    <div class="form-group form-checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="two-factor-auth">
+                            Enable Two-Factor Authentication (2FA)
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="form-group form-checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="session-timeout" checked>
+                            Auto-logout after 30 minutes of inactivity
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="form-action-buttons">
+                        <button type="button" class="btn btn-secondary">Manage Devices</button>
+                        <button type="submit" class="btn btn-primary" id="save-security-settings-button">
+                            Save Security Settings
+                            <span class="spinner" style="display:none;"></span>
+                        </button>
+                    </div>
+                    <div class="success-message" id="security-success" style="display:none;">Security settings saved!</div>
+                    <div class="error-message" id="security-form-error" style="display:none;"></div>
+                </form>
+            </div>
+            
+            <div class="settings-card account-delete-card">
+                <h3>Danger Zone</h3>
+                <p>Permanently delete your account and all associated data.</p>
+                <button class="btn btn-danger" id="delete-account-button">Delete Account</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TaskMaster Pro</h3>
+                    <p>Streamline your workflow, boost productivity, and achieve your goals with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../public/index.html">Home</a></li>
+                        <li><a href="../public/login.html">Login</a></li>
+                        <li><a href="../public/signup.html">Signup</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 TaskMaster Pro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="../public/js/main.js"></script>
+    <script src="js/dashboard.js"></script> <!-- Re-using dashboard.js for common auth/logout -->
+</body>
+</html>
